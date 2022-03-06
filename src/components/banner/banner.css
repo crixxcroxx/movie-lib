@@ -1,0 +1,7 @@
+.banner {
+  height: min(30rem, 90vw);
+  margin-block-start: -4rem;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
