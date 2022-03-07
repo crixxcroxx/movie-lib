@@ -1,6 +1,6 @@
-import axios from "axios";
 import create from "zustand";
 import produce from "immer";
+import axios from "axios";
 
 import { endpoints } from "../assets/data";
 
@@ -46,5 +46,25 @@ export const useStoreShows = create((set, get) => ({
             .catch((err) => console.log(err));
         })
         .catch((err) => console.log(err));
+  },
+}));
+
+export const useStorePersonalList = create((set) => ({
+  saved: [],
+  addToList: (item) => {
+    set(
+      produce((draft) => {
+        const showIndex = draft.saved.findIndex((el) => el.id === item.id);
+        if (showIndex === -1) draft.saved.unshift(item);
+      })
+    );
+  },
+  removeFromList: (id) => {
+    set(
+      produce((draft) => {
+        const showIndex = draft.saved.findIndex((el) => el.id === id);
+        draft.saved.splice(showIndex, 1);
+      })
+    );
   },
 }));

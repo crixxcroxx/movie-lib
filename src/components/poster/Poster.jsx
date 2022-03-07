@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Modal from "react-modal";
 
+import { useStorePersonalList } from "../../zustand/store";
+
 import "./poster.css";
 
 const customStyles = {
@@ -13,8 +15,12 @@ const customStyles = {
 };
 
 const Poster = (props) => {
-  const { img_url, vid_url, title, overview, genres } = props;
+  const { id, img_url, vid_url, title, overview, genres } = props;
   const [modalIsOpen, setIsOpen] = useState(false);
+
+  const { saved, addToList, removeFromList } = useStorePersonalList(
+    (state) => state
+  );
 
   function openModal() {
     setIsOpen(true);
@@ -23,6 +29,24 @@ const Poster = (props) => {
   function closeModal() {
     setIsOpen(false);
   }
+
+  const [isSaved, setIsSaved] = useState(
+    saved.findIndex((item) => item.id === id) < 0 ? false : true
+  );
+
+  const handleClick = () => {
+    setIsSaved(!isSaved);
+    !isSaved
+      ? addToList({
+          id,
+          img_url,
+          vid_url,
+          title,
+          overview,
+          genres,
+        })
+      : removeFromList(id);
+  };
 
   return (
     <div className="poster">
@@ -68,12 +92,19 @@ const Poster = (props) => {
         <p onClick={openModal}>{title}</p>
 
         <div className="btn-grp">
-          <button title="Play" onClick={() => console.log("play clicked")}>
+          <button title="Play">
             <i className="fa fa-play" aria-hidden="true"></i>
           </button>
 
-          <button title="Add to list">
-            <i className="fa fa-plus" aria-hidden="true"></i>
+          <button
+            title={isSaved ? "Remove from list" : "Add to list"}
+            onClick={handleClick}
+          >
+            {isSaved ? (
+              <i className="fa fa-trash" aria-hidden="true"></i>
+            ) : (
+              <i className="fa fa-plus" aria-hidden="true"></i>
+            )}
           </button>
         </div>
       </div>

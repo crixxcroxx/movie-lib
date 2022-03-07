@@ -32,6 +32,7 @@ const Segment = ({ title, endpoint }) => {
           shows.map((show) => (
             <SwiperSlide key={show.id}>
               <Poster
+                id={show.id}
                 img_url={
                   `${BASE_URL}${show.poster_path}` ||
                   `${BASE_URL}${show.backdrop_path}`
