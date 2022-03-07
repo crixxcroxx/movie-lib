@@ -1,6 +1,9 @@
 import { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+
+import Poster from "../poster/Poster";
 import { useStoreShows } from "../../zustand/store";
+
 import "swiper/css";
 import "./segment.css";
 
@@ -28,26 +31,13 @@ const Segment = ({ title, endpoint }) => {
         {shows.length > 0 &&
           shows.map((show) => (
             <SwiperSlide key={show.id}>
-              <img
-                src={
+              <Poster
+                url={
                   `${BASE_URL}${show.poster_path}` ||
                   `${BASE_URL}${show.backdrop_path}`
                 }
-                alt={show.original_title}
+                title={show.original_title}
               />
-              <div className="segment-overlay">
-                <p>{show.original_title}</p>
-
-                <div className="btn-grp">
-                  <button title="Play">
-                    <i className="fa fa-play" aria-hidden="true"></i>
-                  </button>
-
-                  <button title="Add to list">
-                    <i className="fa fa-plus" aria-hidden="true"></i>
-                  </button>
-                </div>
-              </div>
             </SwiperSlide>
           ))}
       </Swiper>

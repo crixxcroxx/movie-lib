@@ -1,38 +1,3 @@
 .swiper-slide {
   position: relative;
 }
-
-.swiper-slide:hover .segment-overlay {
-  opacity: 1;
-  animation: var(--animation-fade-in) forwards, var(--animation-slide-in-down);
-  animation-timing-function: var(--ease-squish-4);
-  animation-duration: 500ms;
-}
-
-.segment-overlay {
-  display: grid;
-  align-content: space-between;
-
-  opacity: 0;
-  position: absolute;
-  inset: 0;
-  padding: 1rem 0.5rem;
-  background: linear-gradient(
-    318deg,
-    rgba(239, 255, 254, 0.7) 0%,
-    rgba(191, 211, 254, 0.9) 33%,
-    rgba(129, 91, 251, 0.95) 100%
-  );
-}
-
-.segment-overlay button {
-  padding: 0.25rem 1rem;
-  border: var(--border-size-1) solid var(--gray-7);
-  border-radius: var(--radius-round);
-  background-color: transparent;
-}
-
-.segment-overlay .btn-grp {
-  display: flex;
-  justify-content: space-between;
-}
