@@ -1,0 +1,9 @@
+.watch {
+  height: calc(100vh - 4rem);
+  width: 100vw;
+}
+
+.watch iframe {
+  width: 100%;
+  height: 100%;
+}

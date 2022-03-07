@@ -1,7 +1,6 @@
 .poster:hover .poster-overlay {
   animation: var(--animation-fade-in) forwards, var(--animation-slide-in-down);
-  animation-timing-function: var(--ease-squish-4);
-  animation-duration: 500ms;
+  animation-duration: 250ms;
 }
 
 .poster-overlay {

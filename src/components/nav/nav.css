@@ -17,6 +17,10 @@ nav {
   gap: 1.5rem;
 }
 
+.nav-links > * {
+  width: max-content;
+}
+
 @media (min-width: 768px) {
   .nav-links {
     display: flex;

@@ -1,14 +1,22 @@
-import Banner from "../banner/Banner";
+import { Route, Routes } from "react-router-dom";
+
 import Nav from "../nav/Nav";
-import Segment from "../segment/Segment";
+import Home from "../../pages/home/Home";
+import Watch from "../../pages/watch/Watch";
+import MyList from "../../pages/myList/MyList";
+
 import "./app.css";
 
 const App = () => {
   return (
     <div className="app">
       <Nav />
-      <Banner />
-      <Segment title="Movies" endpoint="popular" />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="watch/:title/:id" element={<Watch />} />
+        <Route path="my-list" element={<MyList />} />
+      </Routes>
     </div>
   );
 };

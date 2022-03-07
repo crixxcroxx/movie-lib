@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 
 import { useStorePersonalList } from "../../zustand/store";
@@ -17,6 +18,8 @@ const customStyles = {
 const Poster = (props) => {
   const { id, img_url, vid_url, title, overview, genres } = props;
   const [modalIsOpen, setIsOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   const { saved, addToList, removeFromList } = useStorePersonalList(
     (state) => state
@@ -84,7 +87,9 @@ const Poster = (props) => {
           <p>{overview}</p>
 
           <br />
-          <button>Add to Watchlist</button>
+          <button onClick={handleClick}>
+            {isSaved ? "Remove from watchlist" : "Add to watchlist"}
+          </button>
         </div>
       </Modal>
 
@@ -92,7 +97,10 @@ const Poster = (props) => {
         <p onClick={openModal}>{title}</p>
 
         <div className="btn-grp">
-          <button title="Play">
+          <button
+            title="Play"
+            onClick={() => navigate(`/watch/${title}/${vid_url.key}`)}
+          >
             <i className="fa fa-play" aria-hidden="true"></i>
           </button>
 

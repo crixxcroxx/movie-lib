@@ -1,0 +1,33 @@
+.my-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.my-list > div {
+  display: grid;
+  place-items: center;
+
+  max-width: 10rem;
+  height: 15rem;
+}
+
+.my-list > div > img,
+button {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.my-list > div button {
+  display: none;
+}
+
+.my-list > div:hover button {
+  display: block;
+
+  animation: var(--animation-fade-in) forwards, var(--animation-slide-in-down);
+  animation-duration: 250ms;
+}
+
+.my-list > div:hover img {
+  filter: grayscale(0.8);
+}
