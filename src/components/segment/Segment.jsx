@@ -57,7 +57,7 @@ const Segment = ({ title, endpoint }) => {
                 id={show.id}
                 img_url={show.poster_path || show.backdrop_path}
                 vid_url={show.detailed.videos.results[0]}
-                title={show.original_title}
+                title={show.original_title || show.original_name}
                 overview={show.overview}
                 genres={show.detailed.genres}
               />

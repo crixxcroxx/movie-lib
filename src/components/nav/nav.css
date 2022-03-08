@@ -12,9 +12,18 @@ nav {
   width: inherit;
 }
 
+.nav-brand a {
+  color: var(--indigo-4) !important;
+}
+
 .nav-links {
   display: none;
   gap: 1.5rem;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 1rem;
 }
 
 .nav-links > * {
@@ -24,5 +33,9 @@ nav {
 @media (min-width: 768px) {
   .nav-links {
     display: flex;
+  }
+
+  .nav-icons {
+    display: none;
   }
 }

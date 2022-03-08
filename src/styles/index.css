@@ -15,6 +15,7 @@ body {
 
 a {
   text-decoration: none;
+  color: rgb(214, 214, 214) !important;
 }
 
 h1,
@@ -30,6 +31,7 @@ button {
 /* utilities */
 .section-title {
   font-size: var(--font-size-3);
+  margin-block: 1rem;
 }
 
 /* components */
@@ -61,7 +63,6 @@ button {
 
 .btn-outline-primary:hover {
   color: var(--gray-0);
-  border: none;
   background-color: var(--indigo-5);
 }
 
@@ -81,6 +82,5 @@ button {
 
 .btn-outline-danger:hover {
   color: var(--gray-0);
-  border: none;
   background-color: var(--red-7);
 }
