@@ -1,0 +1,21 @@
+.search {
+  margin-inline: 1rem;
+}
+
+.search input[type="text"] {
+  width: 100%;
+  margin-block: 2rem 3rem;
+  color: rgb(0, 0, 0);
+}
+
+.search-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.search-list > div {
+  position: relative;
+  max-width: 150px;
+}
