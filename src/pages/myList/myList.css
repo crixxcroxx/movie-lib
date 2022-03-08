@@ -1,7 +1,15 @@
+.my-list-wrapper p {
+  font-size: 1.4rem;
+  text-indent: 3rem;
+  margin: 0;
+}
+
 .my-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  justify-content: center;
+  gap: 0.5rem;
+  padding-top: 3rem;
 }
 
 .my-list > div {
@@ -29,5 +37,5 @@ button {
 }
 
 .my-list > div:hover img {
-  filter: grayscale(0.8);
+  filter: grayscale(1);
 }

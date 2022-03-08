@@ -87,17 +87,27 @@ const Poster = (props) => {
           <p>{overview}</p>
 
           <br />
-          <button onClick={handleClick}>
+          <button
+            className={`btn ${
+              isSaved ? "btn-round-danger" : "btn-round-primary"
+            }`}
+            onClick={handleClick}
+          >
             {isSaved ? "Remove from watchlist" : "Add to watchlist"}
           </button>
         </div>
       </Modal>
 
       <div className="poster-overlay">
-        <p onClick={openModal}>{title}</p>
+        <p onClick={openModal}>
+          {title.length > 20
+            ? title.toString().substring(0, 20) + "..."
+            : title}
+        </p>
 
         <div className="btn-grp">
           <button
+            className="btn btn-outline-primary"
             title="Play"
             onClick={() => navigate(`/watch/${title}/${vid_url.key}`)}
           >
@@ -105,6 +115,9 @@ const Poster = (props) => {
           </button>
 
           <button
+            className={`btn ${
+              isSaved ? "btn-outline-danger" : "btn-outline-primary"
+            }`}
             title={isSaved ? "Remove from list" : "Add to list"}
             onClick={handleClick}
           >

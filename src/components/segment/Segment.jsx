@@ -12,7 +12,6 @@ const Segment = ({ title, endpoint }) => {
   const BASE_URL = "https://image.tmdb.org/t/p/w500";
 
   let shows = useStoreShows((state) => state[endpoint]);
-  console.log(shows);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -27,7 +26,31 @@ const Segment = ({ title, endpoint }) => {
     <div className="segment">
       <p className="section-title">{title}</p>
 
-      <Swiper spaceBetween={5} slidesPerView={6}>
+      <Swiper
+        spaceBetween={5}
+        breakpoints={{
+          375: {
+            width: 375,
+            slidesPerView: 3,
+          },
+          480: {
+            width: 480,
+            slidesPerView: 4,
+          },
+          640: {
+            width: 640,
+            slidesPerView: 4,
+          },
+          768: {
+            width: 768,
+            slidesPerView: 6,
+          },
+          900: {
+            width: 900,
+            slidesPerView: 6,
+          },
+        }}
+      >
         {shows.length > 0 &&
           shows.map((show) => (
             <SwiperSlide key={show.id}>
