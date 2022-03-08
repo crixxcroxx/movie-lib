@@ -9,7 +9,6 @@ import "./segment.css";
 
 const Segment = ({ title, endpoint }) => {
   const fetchShows = useStoreShows((state) => state.fetchShows);
-  const BASE_URL = "https://image.tmdb.org/t/p/w500";
 
   let shows = useStoreShows((state) => state[endpoint]);
 
@@ -56,10 +55,7 @@ const Segment = ({ title, endpoint }) => {
             <SwiperSlide key={show.id}>
               <Poster
                 id={show.id}
-                img_url={
-                  `${BASE_URL}${show.poster_path}` ||
-                  `${BASE_URL}${show.backdrop_path}`
-                }
+                img_url={show.poster_path || show.backdrop_path}
                 vid_url={show.detailed.videos.results[0]}
                 title={show.original_title}
                 overview={show.overview}

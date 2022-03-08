@@ -10,7 +10,7 @@ const Nav = () => {
         </h3>
       </div>
       <div className="nav-links">
-        <p>Search</p>
+        <Link to="search">Search</Link>
         <Link to="my-list">My List</Link>
       </div>
     </nav>

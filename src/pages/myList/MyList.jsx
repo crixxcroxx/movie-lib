@@ -12,7 +12,10 @@ const MyList = () => {
         {saved.length > 0 &&
           saved.map((movie) => (
             <div key={movie.id}>
-              <img src={movie.img_url} alt={movie.title} />
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.img_url}`}
+                alt={movie.title}
+              />
               <button
                 className="btn btn-round-danger"
                 onClick={() => removeFromList(movie.id)}

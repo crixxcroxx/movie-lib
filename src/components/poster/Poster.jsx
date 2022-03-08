@@ -53,7 +53,7 @@ const Poster = (props) => {
 
   return (
     <div className="poster">
-      <img src={img_url} alt={title} />
+      <img src={`https://image.tmdb.org/t/p/w500${img_url}`} alt={title} />
 
       <Modal
         isOpen={modalIsOpen}
