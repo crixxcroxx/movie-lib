@@ -5,7 +5,7 @@ import axios from "axios";
 import { endpoints } from "../assets/data";
 
 const BASE_URL = "https://api.themoviedb.org/3";
-const KEY = "cfd5046336aae11cf3128bac12f9c60c";
+const KEY = "";
 
 // const IMG_URL = "https://image.tmdb.org/t/p/w1280" //w780 //w500
 
